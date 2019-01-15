@@ -1,0 +1,48 @@
+{
+    "name": "wdda/laravel-uikit-form",
+    "type": "library",
+    "description": "This package for render form as uikit",
+    "keywords": [
+        "form",
+        "laravel",
+        "uikit",
+        "ui-kit"
+    ],
+    "homepage": "https://github.com/wdda/laravel-uikit-form",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dmitriy",
+            "email": "dima@wdda.pro",
+            "homepage": "http://wdda.pro",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=6.5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "WDDA\\LaravelUikitForm\\": "src/"
+        },
+        "files": ["src/helpers.php"]
+    },
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
+        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "WDDA\\LaravelUikitForm\\UiKitForm"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
