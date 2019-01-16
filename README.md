@@ -1,4 +1,4 @@
-# Laravel Uikit Form (alpha)
+# Laravel Uikit Form
 
 [![Software License][ico-license]](LICENSE.md)
 

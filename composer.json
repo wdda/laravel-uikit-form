@@ -38,7 +38,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "WDDA\\LaravelUikitForm\\UiKitForm"
+                "WDDA\\LaravelUikitForm\\LaravelUikitFormProvider"
             ]
         }
     },
