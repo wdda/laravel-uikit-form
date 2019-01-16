@@ -11,7 +11,7 @@ class LaravelUikitForm
     public function __construct()
     {
         $this->view = app(ViewFactory::class);
-        $this->view->addNamespace('uikitForm', base_path('packages/wdda/laravel-uikit-form/src/views'));
+        $this->view->addNamespace('uikitForm', base_path('vendor/wdda/laravel-uikit-form/src/views'));
         $this->helper = new LaravelUikitFormHelper();
     }
 
