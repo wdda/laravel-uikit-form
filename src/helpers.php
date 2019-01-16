@@ -6,7 +6,7 @@ function formInput($name, $value = false, $label = false, $id = false, $attribut
     return LaravelUikitForm::input($name, $value, $label, $id, $attributes);
 }
 
-function formTextarea($name, $value = false, $label = false, $id = false, $rows = false, $attributes = false)
+function formTextarea($name, $value = false, $label = false, $id = false, $rows = 6, $attributes = false)
 {
     return LaravelUikitForm::textarea($name, $value, $label, $id, $rows, $attributes);
 }
@@ -19,4 +19,9 @@ function formSelect($name, $options, $value = false, $label = false, $id = false
 function formCheckbox($name, $value = false, $label = false, $id = false, $attributes = false)
 {
     return LaravelUikitForm::checkbox($name, $value, $label, $id, $attributes);
+}
+
+function formRadio($name, $value = false, $label = false, $id = false, $attributes = false)
+{
+    return LaravelUikitForm::radio($name, $value, $label, $id, $attributes);
 }

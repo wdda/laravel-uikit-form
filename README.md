@@ -24,7 +24,7 @@ Result:
 formInput($name, $value = false, $label = false, $id = false, $attributes = false)
 ```
 ```php
-formTextarea($name, $value = false, $label = false, $id = false, $rows = false, $attributes = false)
+formTextarea($name, $value = false, $label = false, $id = false, $rows = 6, $attributes = false)
 ```
 ```php
 formSelect($name, $options, $value = false, $label = false, $id = false, $attributes = false)
@@ -32,6 +32,10 @@ formSelect($name, $options, $value = false, $label = false, $id = false, $attrib
 ```php
 formCheckbox($name, $value = false, $label = false, $id = false, $attributes = false)
 ```
+```php
+formRadio($name, $value = false, $checked = false, $label = false, $id = false, $attributes = false)
+```
+
 
 ## Install
 

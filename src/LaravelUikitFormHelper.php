@@ -7,8 +7,17 @@ class LaravelUikitFormHelper
     {
         $customAttributes = '';
         if (!empty($attributes)) {
-            foreach ($attributes as $key => $attribute) {
-                $customAttributes .= ' ' . $key . '="' . $attribute . '"';
+            if(!is_array($attributes)) {
+                $customAttributes = $attributes;
+            } else {
+                foreach ($attributes as $key => $attribute) {
+                    if (is_numeric($key)) {
+                        $customAttributes .= ' ' . $attribute;
+                        continue;
+                    }
+
+                    $customAttributes .= ' ' . $key . '="' . $attribute . '"';
+                }
             }
         }
 
@@ -36,7 +45,7 @@ class LaravelUikitFormHelper
 
     public function rows($rows)
     {
-        return $this->validateArgument($rows, 6);
+        return $this->validateArgument($rows);
     }
 
     public function validateArgument($argument, $default = null)

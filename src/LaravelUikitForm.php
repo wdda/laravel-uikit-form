@@ -29,7 +29,7 @@ class LaravelUikitForm
         ])->render();
     }
 
-    public static function textarea($name, $value = false, $label = false, $id = false, $rows, $attributes = false)
+    public static function textarea($name, $value = false, $label = false, $id = false, $rows = 6, $attributes = false)
     {
         $form = new LaravelUikitForm();
 
@@ -67,7 +67,21 @@ class LaravelUikitForm
             'label' => $form->helper->label($label, $name),
             'id' => $form->helper->id($id, $name),
             'attributes' => $form->helper->attributes($attributes),
-            'value' => $form->helper->value($value)
+            'value' => $form->helper->value($value),
+        ])->render();
+    }
+
+    public static function radio($name, $value = false, $checked = false, $label = false, $id = false, $attributes = false)
+    {
+        $form = new LaravelUikitForm();
+
+        return $form->view->make('uikitForm::radio', [
+            'name' => $name,
+            'label' => $form->helper->label($label, $name),
+            'id' => $form->helper->id($id, $name),
+            'attributes' => $form->helper->attributes($attributes),
+            'value' => $form->helper->value($value),
+            'checked' => (bool)$checked
         ])->render();
     }
 }
