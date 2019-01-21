@@ -21,7 +21,7 @@ function formCheckbox($name, $value = false, $label = false, $id = false, $attri
     return LaravelUikitForm::checkbox($name, $value, $label, $id, $attributes);
 }
 
-function formRadio($name, $value = false, $label = false, $id = false, $attributes = false)
+function formRadio($name, $value = false, $checked = false, $label = false, $id = false, $attributes = false)
 {
-    return LaravelUikitForm::radio($name, $value, $label, $id, $attributes);
+    return LaravelUikitForm::radio($name, $value, $checked, $label, $id, $attributes);
 }

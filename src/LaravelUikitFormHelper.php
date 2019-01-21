@@ -50,8 +50,8 @@ class LaravelUikitFormHelper
 
     public function validateArgument($argument, $default = null)
     {
-        if (!empty($argument)) {
-            if ($argument) {
+        if (!empty($argument) || $argument === 0) {
+            if ($argument || $argument === 0) {
                 return $argument;
             }
         }
