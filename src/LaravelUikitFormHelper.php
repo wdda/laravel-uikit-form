@@ -26,7 +26,7 @@ class LaravelUikitFormHelper
 
     public function label($label, $name)
     {
-        return $this->validateArgument(ucfirst(strtolower($label)), ucfirst(strtolower(str_replace('_', ' ', $name))));
+        return $this->validateArgument(ucfirst($label), ucfirst(str_replace('_', ' ', $name)));
     }
 
     public function id($id, $name)
