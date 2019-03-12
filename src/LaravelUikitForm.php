@@ -37,6 +37,7 @@ class LaravelUikitForm
             'name' => $name,
             'label' => $form->helper->label($label, $name),
             'id' => $form->helper->id($id, $name),
+            'class' => (is_array($attributes) && key_exists('class', $attributes)),
             'attributes' => $form->helper->attributes($attributes),
             'value' => $form->helper->value($value),
             'rows' => $form->helper->rows($rows),
@@ -51,6 +52,7 @@ class LaravelUikitForm
             'name' => $name,
             'label' => $form->helper->label($label, $name),
             'id' => $form->helper->id($id, $name),
+            'class' => (is_array($attributes) && key_exists('class', $attributes)),
             'attributes' => $form->helper->attributes($attributes),
             'attributesArray' => (!$attributes) ? [] : $attributes,
             'value' => $form->helper->value($value),
@@ -66,6 +68,7 @@ class LaravelUikitForm
             'name' => $name,
             'label' => $form->helper->label($label, $name),
             'id' => $form->helper->id($id, $name),
+            'class' => (is_array($attributes) && key_exists('class', $attributes)),
             'attributes' => $form->helper->attributes($attributes),
             'value' => $form->helper->value($value),
         ])->render();
@@ -79,6 +82,7 @@ class LaravelUikitForm
             'name' => $name,
             'label' => $form->helper->label($label, $name),
             'id' => $form->helper->id($id, $name),
+            'class' => (is_array($attributes) && key_exists('class', $attributes)),
             'attributes' => $form->helper->attributes($attributes),
             'value' => $form->helper->value($value),
             'checked' => (bool)$checked
