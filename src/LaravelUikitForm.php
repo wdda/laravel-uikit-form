@@ -60,10 +60,9 @@ class LaravelUikitForm
         ])->render();
     }
 
-    public static function checkbox($name, $value = false, $label = false, $id = false, $attributes = false)
+    public static function checkbox($name, $value = false, $checked = false, $label = false, $id = false, $attributes = false)
     {
         $form = new LaravelUikitForm();
-
         return $form->view->make('uikitForm::checkbox', [
             'name' => $name,
             'label' => $form->helper->label($label, $name),
@@ -71,6 +70,7 @@ class LaravelUikitForm
             'class' => (is_array($attributes) && key_exists('class', $attributes)),
             'attributes' => $form->helper->attributes($attributes),
             'value' => $form->helper->value($value),
+            'checked' => $checked,
         ])->render();
     }
 

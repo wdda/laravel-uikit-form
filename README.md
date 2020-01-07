@@ -30,7 +30,7 @@ formTextarea($name, $value = false, $label = false, $id = false, $rows = 6, $att
 formSelect($name, $options, $value = false, $label = false, $id = false, $attributes = false)
 ```
 ```php
-formCheckbox($name, $value = false, $label = false, $id = false, $attributes = false)
+formCheckbox($name, $value = false, $checked = false, $label = false, $id = false, $attributes = false)
 ```
 ```php
 formRadio($name, $value = false, $checked = false, $label = false, $id = false, $attributes = false)

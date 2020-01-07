@@ -4,6 +4,6 @@
                 @if(!$class)class="uk-checkbox"@endif
                 @if($id)id="{{ $id }}"@endif
                 @if($name)name="{{ $name }}"@endif
-               value="{{ $value }}"{!! $attributes !!}> {{ $label }}
+               value="{{ $value }}"{!! $attributes !!}@if($checked) checked @endif> {{ $label }}
     </label>
 </div>
