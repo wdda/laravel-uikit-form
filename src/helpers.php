@@ -1,12 +1,20 @@
 <?php
+
+use WDDA\LaravelUikitForm\Fields\Button;
+use WDDA\LaravelUikitForm\Fields\Input;
 use WDDA\LaravelUikitForm\LaravelUikitForm;
 
-function formInput($name, $value = false, $label = false, $id = false, $attributes = false)
+function formInput($name): Input
 {
-    return LaravelUikitForm::input($name, $value, $label, $id, $attributes);
+    return LaravelUikitForm::input($name);
 }
 
-function formTextarea($name, $value = false, $label = false, $id = false, $rows = 6, $attributes = false)
+function formButton($name): Button
+{
+    return LaravelUikitForm::button($name);
+}
+
+/*function formTextarea($name, $value = false, $label = false, $id = false, $rows = 6, $attributes = false)
 {
     return LaravelUikitForm::textarea($name, $value, $label, $id, $rows, $attributes);
 }
@@ -24,4 +32,4 @@ function formCheckbox($name, $value = false, $checked = false, $label = false, $
 function formRadio($name, $value = false, $checked = false, $label = false, $id = false, $attributes = false)
 {
     return LaravelUikitForm::radio($name, $value, $checked, $label, $id, $attributes);
-}
+}*/

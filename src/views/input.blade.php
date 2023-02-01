@@ -4,6 +4,7 @@
         <input @if(!$class)class="uk-input"@endif
                @if($id)id="{{ $id }}"@endif
                @if($name)name="{{ $name }}"@endif
+               @if($placeholder)placeholder="{{ $placeholder }}"@endif
                value="{{ $value }}"{!! $attributes !!}>
     </div>
 </div>

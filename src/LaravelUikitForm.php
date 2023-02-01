@@ -2,6 +2,8 @@
 namespace WDDA\LaravelUikitForm;
 
 use Illuminate\Contracts\View\Factory as ViewFactory;
+use WDDA\LaravelUikitForm\Fields\Button;
+use WDDA\LaravelUikitForm\Fields\Input;
 
 class LaravelUikitForm
 {
@@ -15,18 +17,14 @@ class LaravelUikitForm
         $this->helper = new LaravelUikitFormHelper();
     }
 
-    public static function input($name, $value = false, $label = false, $id = false, $attributes = false)
+    public static function input($name): Input
     {
-        $form = new LaravelUikitForm();
+        return new Input($name);
+    }
 
-        return $form->view->make('uikitForm::input', [
-            'name' => $name,
-            'label' => $form->helper->label($label, $name),
-            'id' => $form->helper->id($id, $name),
-            'class' => (is_array($attributes) && key_exists('class', $attributes)),
-            'attributes' => $form->helper->attributes($attributes),
-            'value' => $form->helper->value($value)
-        ])->render();
+    public static function button($name): Button
+    {
+        return new Button($name);
     }
 
     public static function textarea($name, $value = false, $label = false, $id = false, $rows = 6, $attributes = false)
