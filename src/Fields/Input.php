@@ -15,7 +15,8 @@ class Input extends Field {
             'class' => null,
             'attributes' => null,
             'value' => null,
-            'placeholder' => null
+            'placeholder' => null,
+            'disabled' => null
         ];
 
         $this->label(null);
@@ -38,7 +39,7 @@ class Input extends Field {
         $this->property['attributes'] = $this->setAttributes($attributes);
 
         $attributes = $this->property['attributes'];
-        $this->property['class'] = (is_array($attributes['class']) && key_exists('class', $attributes));
+        $this->property['class'] = key_exists('class', $attributes) && is_array($attributes['class']);
         return $this;
     }
 
@@ -51,6 +52,12 @@ class Input extends Field {
     public function placeholder($value): static
     {
         $this->property['placeholder'] = $this->validateArgument($value);
+        return $this;
+    }
+
+    public function disabled($status = 'not_use'): static
+    {
+        $this->property['disabled'] = $this->setDisabled($status);
         return $this;
     }
 

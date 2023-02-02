@@ -14,7 +14,6 @@ class File extends Field {
             'id' => null,
             'class' => null,
             'attributes' => null,
-            'value' => null,
             'placeholder' => null
         ];
 
@@ -39,12 +38,6 @@ class File extends Field {
 
         $attributes = $this->property['attributes'];
         $this->property['class'] = (is_array($attributes['class']) && key_exists('class', $attributes));
-        return $this;
-    }
-
-    public function value($value): static
-    {
-        $this->property['value'] = $this->setValue($value);
         return $this;
     }
 

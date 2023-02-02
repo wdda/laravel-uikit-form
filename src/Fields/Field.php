@@ -57,6 +57,15 @@ abstract class Field {
         return $this->validateArgument($rows);
     }
 
+    public function setDisabled($status = 'not_use'): bool
+    {
+        if ($status !== 'not_use' && $status) {
+            return true;
+        }
+
+        return false;
+    }
+
     public function validateArgument($argument, $default = null)
     {
         if (!empty($argument) || $argument === 0) {

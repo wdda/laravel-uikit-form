@@ -2,6 +2,7 @@
     <label @if($id)for="{{$id}}"@endif>{{$label}}</label>
     <div class="uk-form-controls">
         <select
+                @if($disabled) disabled @endif
                 @if(!$class)class="uk-select"@endif
                 @if($id)id="{{$id}}"@endif
                 @if($name)name="{{$name}}"@endif{!! $attributes !!}>

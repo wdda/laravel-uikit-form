@@ -17,7 +17,8 @@ class Select extends Field {
             'value' => null,
             'placeholder' => null,
             'attributesArray' => [],
-            'options' => []
+            'options' => [],
+            'disabled' => null
         ];
 
         $this->label(null);
@@ -59,6 +60,12 @@ class Select extends Field {
     public function options($options): static
     {
         $this->property['options'] = $options;
+        return $this;
+    }
+
+    public function disabled($status = 'not_use'): static
+    {
+        $this->property['disabled'] = $this->setDisabled($status);
         return $this;
     }
 

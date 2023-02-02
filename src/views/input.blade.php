@@ -6,6 +6,7 @@
                @if($id)id="{{ $id }}" @endif
                @if($name)name="{{ $name }}" @endif
                @if($placeholder)placeholder="{{ $placeholder }}" @endif
+               @if($disabled)disabled @endif
                value="{{ $value }}"{!! $attributes !!}>
     </div>
 </div>
