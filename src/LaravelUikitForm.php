@@ -3,7 +3,9 @@ namespace WDDA\LaravelUikitForm;
 
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use WDDA\LaravelUikitForm\Fields\Button;
+use WDDA\LaravelUikitForm\Fields\File;
 use WDDA\LaravelUikitForm\Fields\Input;
+use WDDA\LaravelUikitForm\Fields\Select;
 
 class LaravelUikitForm
 {
@@ -27,6 +29,11 @@ class LaravelUikitForm
         return new Button($name);
     }
 
+    public static function file($name): File
+    {
+        return new File($name);
+    }
+
     public static function textarea($name, $value = false, $label = false, $id = false, $rows = 6, $attributes = false)
     {
         $form = new LaravelUikitForm();
@@ -42,20 +49,9 @@ class LaravelUikitForm
         ])->render();
     }
 
-    public static function select($name, $options, $value = false, $label = false, $id = false, $attributes = false)
+    public static function select($name): Select
     {
-        $form = new LaravelUikitForm();
-
-        return $form->view->make('uikitForm::select', [
-            'name' => $name,
-            'label' => $form->helper->label($label, $name),
-            'id' => $form->helper->id($id, $name),
-            'class' => (is_array($attributes) && key_exists('class', $attributes)),
-            'attributes' => $form->helper->attributes($attributes),
-            'attributesArray' => (!$attributes) ? [] : $attributes,
-            'value' => $form->helper->value($value),
-            'options' => $options
-        ])->render();
+        return new Select($name);
     }
 
     public static function checkbox($name, $value = false, $checked = false, $label = false, $id = false, $attributes = false)

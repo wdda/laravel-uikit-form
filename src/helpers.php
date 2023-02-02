@@ -1,6 +1,7 @@
 <?php
 
 use WDDA\LaravelUikitForm\Fields\Button;
+use WDDA\LaravelUikitForm\Fields\File;
 use WDDA\LaravelUikitForm\Fields\Input;
 use WDDA\LaravelUikitForm\LaravelUikitForm;
 
@@ -9,9 +10,19 @@ function formInput($name): Input
     return LaravelUikitForm::input($name);
 }
 
+function formFile($name): File
+{
+    return LaravelUikitForm::file($name);
+}
+
 function formButton($name): Button
 {
     return LaravelUikitForm::button($name);
+}
+
+function formSelect($name)
+{
+    return LaravelUikitForm::select($name);
 }
 
 /*function formTextarea($name, $value = false, $label = false, $id = false, $rows = 6, $attributes = false)
