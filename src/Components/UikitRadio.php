@@ -1,18 +1,37 @@
 <?php
 namespace WDDA\LaravelUikitForm\Components;
 
-class UikitRadio extends UikitComponent
+use Throwable;
+use WDDA\LaravelUikitForm\Components\Base\UikitBaseComponent;
+
+class UikitRadio extends UikitBaseComponent
 {
-    public function render()
+    protected bool $checked = false;
+
+    public static function create(): self
     {
-        return $this->view->make('uikitForm::radio', [
+        return new self();
+    }
+
+    public function checked(bool $checked): self
+    {
+        $this->checked = $checked;
+        return $this;
+    }
+
+    /**
+     * @throws Throwable
+     */
+    public function render(): string
+    {
+        return $this->view->make('uikit::radio', [
+            'id' => $this->id,
+            'label' => $this->label,
             'name' => $this->name,
-            'label' => $this->helper->label($this->label, $this->name),
-            'id' => $this->helper->id($this->id, $this->name),
-            'class' => isset($this->attributes['class']) ? $this->attributes['class'] : null,
-            'attributes' => $this->helper->attributes($this->attributes),
-            'value' => $this->helper->value($this->value),
-            'checked' => (bool)$this->checked
+            'value' => $this->value,
+            'class' => $this->class,
+            'attributes' => $this->attributes,
+            'checked' => $this->checked,
         ])->render();
     }
 }

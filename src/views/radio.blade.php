@@ -1,10 +1,14 @@
 <div class="uk-margin-small-bottom">
-    <label @if($id)for="{{$id}}"@endif>
+    <label @if($id) for="{{ $id }}" @endif>
         <input
             type="radio"
-            @if(!$class)class="uk-radio"@endif
-            @if($id)id="{{ $id }}"@endif
-            @if($name)name="{{ $name }}"@endif
-            value="{{ $value }}"{!! $attributes !!}@if($checked) checked @endif> {{ $label }}
+            class="{{ $class ?: 'uk-radio' }}"
+            @if($id) id="{{ $id }}" @endif
+            @if($name) name="{{ $name }}" @endif
+            @if($value) name="{{ $value }}" @endif
+            {{ $attributes }}
+            @if($checked) checked @endif
+        >
+        {{ $label ?: $name }}
     </label>
 </div>

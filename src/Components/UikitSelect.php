@@ -1,27 +1,46 @@
 <?php
 namespace WDDA\LaravelUikitForm\Components;
 
-class UikitSelect extends UikitComponent
-{
-    protected $options = [];
+use Throwable;
+use WDDA\LaravelUikitForm\Components\Base\UikitBaseComponent;
 
-    public function options($options)
+class UikitSelect extends UikitBaseComponent
+{
+    protected array $options;
+    protected ?array $attributesArray = [];
+
+    public static function create(): self
+    {
+        return new self();
+    }
+
+    public function options(array $options): self
     {
         $this->options = $options;
         return $this;
     }
 
-    public function render()
+    public function attributesArray(?array $attributesArray = []): self
     {
-        return $this->view->make('uikitForm::select', [
+        // (!$attributes) ? [] : $attributes
+
+        $this->attributesArray = $attributesArray;
+        return $this;
+    }
+
+    /**
+     * @throws Throwable
+     */
+    public function render(): string
+    {
+        return $this->view->make('uikit::radio', [
+            'id' => $this->id,
+            'label' => $this->label,
             'name' => $this->name,
-            'label' => $this->helper->label($this->label, $this->name),
-            'id' => $this->helper->id($this->id, $this->name),
-            'class' => isset($this->attributes['class']) ? $this->attributes['class'] : 'uk-select',
-            'attributes' => $this->helper->attributes($this->attributes),
-            'attributesArray' => $this->attributes,
-            'value' => $this->helper->value($this->value),
-            'options' => $this->options
+            'value' => $this->value,
+            'class' => $this->class,
+            'attributes' => $this->attributes,
         ])->render();
     }
+
 }

@@ -1,17 +1,29 @@
 <?php
+
 namespace WDDA\LaravelUikitForm\Components;
 
-class UikitInput extends UikitComponent
+use Throwable;
+use WDDA\LaravelUikitForm\Components\Base\UikitBaseComponent;
+
+class UikitInput extends UikitBaseComponent
 {
-    public function render()
+    public static function create(): self
     {
-        return $this->view->make('uikitForm::input', [
+        return new self();
+    }
+
+    /**
+     * @throws Throwable
+     */
+    public function render(): string
+    {
+        return $this->view->make('uikit::radio', [
+            'id' => $this->id,
+            'label' => $this->label,
             'name' => $this->name,
-            'label' => $this->helper->label($this->label, $this->name),
-            'id' => $this->helper->id($this->id, $this->name),
-            'class' => isset($this->attributes['class']) ? $this->attributes['class'] : null,
-            'attributes' => $this->helper->attributes($this->attributes),
-            'value' => $this->helper->value($this->value)
+            'value' => $this->value,
+            'class' => $this->class,
+            'attributes' => $this->attributes,
         ])->render();
     }
 }
