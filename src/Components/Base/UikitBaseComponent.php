@@ -2,24 +2,14 @@
 
 namespace WDDA\LaravelUikitForm\Components\Base;
 
-use Illuminate\Contracts\View\Factory as ViewFactory;
-
 abstract class UikitBaseComponent implements UikitBaseComponentInterface
 {
-    protected ViewFactory $view;
-
     protected string $name;
     protected ?string $id = null;
     protected ?string $value = null;
     protected ?string $label = null;
     protected ?string $class = null;
-    protected ?string $attributes = '';
-
-    public function __construct()
-    {
-        $this->view = app(ViewFactory::class);
-        $this->view->addNamespace('uikit', base_path('vendor/wdda/laravel-uikit-form/src/views'));
-    }
+    protected string $attributes = '';
 
     abstract public function render(): string;
 
@@ -36,13 +26,13 @@ abstract class UikitBaseComponent implements UikitBaseComponentInterface
 
     public function id(?string $id): self
     {
-        $this->id = is_null($id) ? $this->name : $id;
+        $this->id = $id ?? $this->name;
         return $this;
     }
 
     public function value(?string $value): self
     {
-        $this->value = $this->validateArgument($value);
+        $this->value = $value;
         return $this;
     }
 
@@ -63,27 +53,18 @@ abstract class UikitBaseComponent implements UikitBaseComponentInterface
 
     public function attributes(array $attributes): self
     {
-        foreach ($attributes as $key => $value) {
-            if (is_numeric($key)) {
-                $this->attributes .= $value . ' ';
-            } else {
-                $this->attributes .= $key . ($value ? '="' . htmlspecialchars($value, ENT_QUOTES) . '" ' : '');
-            }
-        }
+        $this->attributes = implode(' ', array_map(
+            function ($key, $value) {
+                if (is_numeric($key)) {
+                    return $value;
+                }
 
-        $this->attributes = trim($this->attributes);
+                return sprintf('%s=%s', $key, htmlspecialchars($value, ENT_QUOTES));
+            },
+            array_keys($attributes),
+            $attributes
+        ));
+
         return $this;
-    }
-
-    public function rows($rows)
-    {
-        dump(__CLASS__, __METHOD__);
-        dd(get_debug_type($rows));
-        return $this->validateArgument($rows);
-    }
-
-    private function validateArgument($argument): string
-    {
-        return empty($argument) ? '' : $argument;
     }
 }

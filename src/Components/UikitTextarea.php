@@ -1,25 +1,37 @@
 <?php
+
 namespace WDDA\LaravelUikitForm\Components;
 
-class UikitTextarea extends UikitComponent
-{
-    protected $rows = 3; // значение по умолчанию
+use Throwable;
+use WDDA\LaravelUikitForm\Components\Base\UikitBaseComponent;
 
-    public function rows($rows)
+class UikitTextarea extends UikitBaseComponent
+{
+    protected int $rows = 3;
+
+    public static function create(): self
+    {
+        return new self();
+    }
+
+    public function rows($rows): self
     {
         $this->rows = $rows;
         return $this;
     }
 
-    public function render()
+    /**
+     * @throws Throwable
+     */
+    public function render(): string
     {
-        return $this->view->make('uikitForm::textarea', [
+        return view('uikit::textarea', [
+            'id' => $this->id,
+            'label' => $this->label,
             'name' => $this->name,
-            'label' => $this->helper->label($this->label, $this->name),
-            'id' => $this->helper->id($this->id, $this->name),
-            'class' => isset($this->attributes['class']) ? $this->attributes['class'] : null,
-            'attributes' => $this->helper->attributes($this->attributes),
-            'value' => $this->helper->value($this->value),
+            'value' => $this->value,
+            'class' => $this->class,
+            'attributes' => $this->attributes,
             'rows' => $this->rows
         ])->render();
     }

@@ -1,4 +1,5 @@
 <?php
+
 namespace WDDA\LaravelUikitForm\Components;
 
 use Throwable;
@@ -6,8 +7,8 @@ use WDDA\LaravelUikitForm\Components\Base\UikitBaseComponent;
 
 class UikitSelect extends UikitBaseComponent
 {
-    protected array $options;
-    protected ?array $attributesArray = [];
+    protected array $options = [];
+    protected array $attributesArray = [];
 
     public static function create(): self
     {
@@ -20,27 +21,20 @@ class UikitSelect extends UikitBaseComponent
         return $this;
     }
 
-    public function attributesArray(?array $attributesArray = []): self
-    {
-        // (!$attributes) ? [] : $attributes
-
-        $this->attributesArray = $attributesArray;
-        return $this;
-    }
-
     /**
      * @throws Throwable
      */
     public function render(): string
     {
-        return $this->view->make('uikit::radio', [
+        return view('uikit::select', [
             'id' => $this->id,
             'label' => $this->label,
             'name' => $this->name,
             'value' => $this->value,
             'class' => $this->class,
             'attributes' => $this->attributes,
+            'attributesArray' => $this->attributesArray,
+            'options' => $this->options,
         ])->render();
     }
-
 }

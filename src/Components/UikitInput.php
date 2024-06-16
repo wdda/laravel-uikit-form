@@ -17,7 +17,7 @@ class UikitInput extends UikitBaseComponent
      */
     public function render(): string
     {
-        return $this->view->make('uikit::radio', [
+        return view('uikit::input', [
             'id' => $this->id,
             'label' => $this->label,
             'name' => $this->name,

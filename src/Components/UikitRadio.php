@@ -1,4 +1,5 @@
 <?php
+
 namespace WDDA\LaravelUikitForm\Components;
 
 use Throwable;
@@ -24,7 +25,7 @@ class UikitRadio extends UikitBaseComponent
      */
     public function render(): string
     {
-        return $this->view->make('uikit::radio', [
+        return view('uikit::radio', [
             'id' => $this->id,
             'label' => $this->label,
             'name' => $this->name,

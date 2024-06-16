@@ -2,6 +2,7 @@
 
 namespace WDDA\LaravelUikitForm;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class LaravelUikitFormProvider extends ServiceProvider
@@ -13,7 +14,7 @@ class LaravelUikitFormProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->loadViewsFrom(__DIR__.'libraries/laravel-uikit-form/src/views', 'uikit');
+        View::addNamespace('uikit', base_path('vendor/wdda/laravel-uikit-form/src/views'));
     }
 
     /**
