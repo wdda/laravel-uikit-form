@@ -7,7 +7,7 @@ use WDDA\LaravelUikitForm\Components\Base\UikitBaseComponent;
 
 class UikitTextarea extends UikitBaseComponent
 {
-    protected int $rows = 3;
+    protected int $rows = 6;
 
     public static function create(): self
     {

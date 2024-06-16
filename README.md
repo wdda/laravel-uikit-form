@@ -8,32 +8,35 @@ Small and smart package for generate html form elements as Uikit mark!
 
 Input:
  ```php
-{!! formInput('my_name') !!}
+{!! input('my_name')->value('value 123')->class('uk-input') !!}
 ```
 Result:
  ```php
- <div class="uk-margin-small-bottom">
-     <label>My name</label>
-     <div class="uk-form-controls">
-         <input class="uk-input" name="my_name" value="">
-     </div>
- </div>
+<div class="uk-margin-small-bottom">
+    <label @if($id)for="{{ $id }}"@endif>{{ $label }}</label>
+    <div class="uk-form-controls">
+        <input @if(!$class)class="uk-input" @endif
+            @if($id)id="{{ $id }}" @endif
+            @if($name)name="{{ $name }}" @endif
+            value="{{ $value }}"{!! $attributes !!}>
+    </div>
+</div>
  ```
  
 ```php
-formInput($name, $value = false, $label = false, $id = false, $attributes = false)
+input()->name('Input')->label('Input')->id('id')->class('uk-input')->attributes(['attribute1', 'attribute2' => 'value'])->value('value')
 ```
 ```php
-formTextarea($name, $value = false, $label = false, $id = false, $rows = 6, $attributes = false)
+textarea()->name('Textarea')->label('Textarea')->id('id')->class('uk-input')->attributes(['attribute1', 'attribute2' => 'value'])->value('value')->rows(8)
 ```
 ```php
-formSelect($name, $options, $value = false, $label = false, $id = false, $attributes = false)
+select()->name('Select')->label('Select')->id('id')->class('uk-input')->attributes(['attribute1', 'attribute2' => 'value'])->value('value')
 ```
 ```php
-formCheckbox($name, $value = false, $checked = false, $label = false, $id = false, $attributes = false)
+checkbox()->name('Checkbox')->label('Checkbox')->id('id')->class('uk-input')->attributes(['attribute1', 'attribute2' => 'value'])->value('value')
 ```
 ```php
-formRadio($name, $value = false, $checked = false, $label = false, $id = false, $attributes = false)
+radio()->name('Radio')->label('Radio')->id('id')->class('uk-input')->attributes(['attribute1', 'attribute2' => 'value'])->value('value')
 ```
 
 
