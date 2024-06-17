@@ -1,27 +1,38 @@
 <?php
-use WDDA\LaravelUikitForm\LaravelUikitForm;
 
-function formInput($name, $value = false, $label = false, $id = false, $attributes = false)
-{
-    return LaravelUikitForm::input($name, $value, $label, $id, $attributes);
+use WDDA\LaravelUikitForm\Components\{UikitCheckbox, UikitInput, UikitRadio, UikitSelect, UikitTextarea};
+
+if (!function_exists('formRadio')) {
+    function formRadio(): UikitRadio
+    {
+        return UikitRadio::create();
+    }
 }
 
-function formTextarea($name, $value = false, $label = false, $id = false, $rows = 6, $attributes = false)
-{
-    return LaravelUikitForm::textarea($name, $value, $label, $id, $rows, $attributes);
+if (!function_exists('formInput')) {
+    function formInput()
+    {
+        return UikitInput::create();
+    }
 }
 
-function formSelect($name, $options, $value = false, $label = false, $id = false, $attributes = false)
-{
-    return LaravelUikitForm::select($name, $options, $value, $label, $id, $attributes);
+if (!function_exists('formTextarea')) {
+    function formTextarea()
+    {
+        return UikitTextarea::create();
+    }
 }
 
-function formCheckbox($name, $value = false, $checked = false, $label = false, $id = false, $attributes = false)
-{
-    return LaravelUikitForm::checkbox($name, $value, $checked, $label, $id, $attributes);
+if (!function_exists('formSelect')) {
+    function formSelect()
+    {
+        return UikitSelect::create();
+    }
 }
 
-function formRadio($name, $value = false, $checked = false, $label = false, $id = false, $attributes = false)
-{
-    return LaravelUikitForm::radio($name, $value, $checked, $label, $id, $attributes);
+if (!function_exists('formCheckbox')) {
+    function formCheckbox()
+    {
+        return UikitCheckbox::create();
+    }
 }

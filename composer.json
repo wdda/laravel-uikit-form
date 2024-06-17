@@ -16,10 +16,15 @@
             "email": "dima@wdda.pro",
             "homepage": "http://wdda.pro",
             "role": "Developer"
+        },
+        {
+            "name": "Eduard",
+            "email": "ward.99@yandex.ru",
+            "role": "Developer"
         }
     ],
     "require": {
-        "php": ">=7.0"
+        "php": ">=8.2"
     },
     "require-dev": {
         "phpunit/phpunit": ">=6.5.5"

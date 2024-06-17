@@ -2,6 +2,7 @@
 
 namespace WDDA\LaravelUikitForm;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class LaravelUikitFormProvider extends ServiceProvider
@@ -11,9 +12,9 @@ class LaravelUikitFormProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
-
+        View::addNamespace('uikit', base_path('vendor/wdda/laravel-uikit-form/src/views'));
     }
 
     /**
@@ -21,12 +22,8 @@ class LaravelUikitFormProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         require_once __DIR__ . '/helpers.php';
-
-        $this->app->bind('Form', function ($app) {
-            return new LaravelUikitForm();
-        });
     }
 }
