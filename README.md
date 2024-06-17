@@ -8,7 +8,7 @@ Small and smart package for generate html form elements as Uikit mark!
 
 Input:
  ```php
-{!! input('my_name')->value('value 123')->class('uk-input') !!}
+{!! formInput('my_name')->value('value 123')->class('uk-input') !!}
 ```
 Result:
  ```php
@@ -24,19 +24,19 @@ Result:
  ```
  
 ```php
-input()->name('Input')->label('Input')->id('id')->class('uk-input')->attributes(['attribute1', 'attribute2' => 'value'])->value('value')
+formInput()->name('Input')->label('Input')->id('id')->class('uk-input')->attributes(['attribute1', 'attribute2' => 'value'])->value('value')
 ```
 ```php
-textarea()->name('Textarea')->label('Textarea')->id('id')->class('uk-input')->attributes(['attribute1', 'attribute2' => 'value'])->value('value')->rows(8)
+formTextarea()->name('Textarea')->label('Textarea')->id('id')->class('uk-input')->attributes(['attribute1', 'attribute2' => 'value'])->value('value')->rows(8)
 ```
 ```php
-select()->name('Select')->label('Select')->id('id')->class('uk-input')->attributes(['attribute1', 'attribute2' => 'value'])->value('value')
+formSelect()->name('Select')->label('Select')->id('id')->class('uk-input')->attributes(['attribute1', 'attribute2' => 'value'])->value('value')
 ```
 ```php
-checkbox()->name('Checkbox')->label('Checkbox')->id('id')->class('uk-input')->attributes(['attribute1', 'attribute2' => 'value'])->value('value')
+formCheckbox()->name('Checkbox')->label('Checkbox')->id('id')->class('uk-input')->attributes(['attribute1', 'attribute2' => 'value'])->value('value')
 ```
 ```php
-radio()->name('Radio')->label('Radio')->id('id')->class('uk-input')->attributes(['attribute1', 'attribute2' => 'value'])->value('value')
+formRadio()->name('Radio')->label('Radio')->id('id')->class('uk-input')->attributes(['attribute1', 'attribute2' => 'value'])->value('value')
 ```
 
 
