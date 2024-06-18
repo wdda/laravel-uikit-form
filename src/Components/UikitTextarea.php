@@ -9,9 +9,9 @@ class UikitTextarea extends UikitBaseComponent
 {
     protected int $rows = 6;
 
-    public static function create(): self
+    public static function create(string $name): self
     {
-        return new self();
+        return new self($name);
     }
 
     public function rows($rows): self

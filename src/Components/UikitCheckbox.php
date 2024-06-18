@@ -9,9 +9,9 @@ class UikitCheckbox extends UikitBaseComponent
 {
     protected bool $checked = false;
 
-    public static function create(): self
+    public static function create(string $name): self
     {
-        return new self();
+        return new self($name);
     }
 
     public function checked(bool $checked): self

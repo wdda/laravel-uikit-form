@@ -3,36 +3,36 @@
 use WDDA\LaravelUikitForm\Components\{UikitCheckbox, UikitInput, UikitRadio, UikitSelect, UikitTextarea};
 
 if (!function_exists('formRadio')) {
-    function formRadio(): UikitRadio
+    function formRadio(string $name): UikitRadio
     {
-        return UikitRadio::create();
+        return UikitRadio::create($name);
     }
 }
 
 if (!function_exists('formInput')) {
-    function formInput()
+    function formInput(string $name)
     {
-        return UikitInput::create();
+        return UikitInput::create($name);
     }
 }
 
 if (!function_exists('formTextarea')) {
-    function formTextarea()
+    function formTextarea(string $name)
     {
-        return UikitTextarea::create();
+        return UikitTextarea::create($name);
     }
 }
 
 if (!function_exists('formSelect')) {
-    function formSelect()
+    function formSelect(string $name)
     {
-        return UikitSelect::create();
+        return UikitSelect::create($name);
     }
 }
 
 if (!function_exists('formCheckbox')) {
-    function formCheckbox()
+    function formCheckbox(string $name)
     {
-        return UikitCheckbox::create();
+        return UikitCheckbox::create($name);
     }
 }

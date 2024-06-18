@@ -7,9 +7,9 @@ use WDDA\LaravelUikitForm\Components\Base\UikitBaseComponent;
 
 class UikitInput extends UikitBaseComponent
 {
-    public static function create(): self
+    public static function create(string $name): self
     {
-        return new self();
+        return new self($name);
     }
 
     /**

@@ -4,24 +4,21 @@ namespace WDDA\LaravelUikitForm\Components\Base;
 
 abstract class UikitBaseComponent implements UikitBaseComponentInterface
 {
-    protected string $name;
     protected ?string $id = null;
     protected ?string $value = null;
     protected ?string $label = null;
     protected ?string $class = null;
     protected string $attributes = '';
 
+    public function __construct(protected string $name)
+    {
+    }
+
     abstract public function render(): string;
 
     public function __toString(): string
     {
         return $this->render();
-    }
-
-    public function name(string $name): self
-    {
-        $this->name = $name;
-        return $this;
     }
 
     public function id(?string $id): self
