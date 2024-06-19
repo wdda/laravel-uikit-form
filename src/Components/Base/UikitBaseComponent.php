@@ -12,6 +12,9 @@ abstract class UikitBaseComponent implements UikitBaseComponentInterface
 
     public function __construct(protected string $name)
     {
+        if (empty($this->label)) {
+            $this->label = ucfirst(str_replace('_', ' ', $this->name));
+        }
     }
 
     abstract public function render(): string;
