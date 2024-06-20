@@ -4,8 +4,6 @@ namespace WDDA\LaravelUikitForm\Components\Base;
 
 interface UikitBaseComponentInterface
 {
-    public function name(string $name): self;
-
     public function label(string $label): self;
 
     public function id(?string $id): self;

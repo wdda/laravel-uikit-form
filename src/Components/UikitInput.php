@@ -7,9 +7,9 @@ use WDDA\LaravelUikitForm\Components\Base\UikitBaseComponent;
 
 class UikitInput extends UikitBaseComponent
 {
-    public static function create(): self
+    public static function create(string $name): self
     {
-        return new self();
+        return new self($name);
     }
 
     /**
@@ -22,7 +22,7 @@ class UikitInput extends UikitBaseComponent
             'label' => $this->label,
             'name' => $this->name,
             'value' => $this->value,
-            'class' => $this->class,
+            'class' => $this->class ?? 'uk-input',
             'attributes' => $this->attributes,
         ])->render();
     }
