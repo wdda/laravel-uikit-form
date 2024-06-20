@@ -14,7 +14,7 @@ class UikitTextarea extends UikitBaseComponent
         return new self($name);
     }
 
-    public function rows($rows): self
+    public function rows(int $rows): self
     {
         $this->rows = $rows;
         return $this;

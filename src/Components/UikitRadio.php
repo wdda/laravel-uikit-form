@@ -7,16 +7,16 @@ use WDDA\LaravelUikitForm\Components\Base\UikitBaseComponent;
 
 class UikitRadio extends UikitBaseComponent
 {
-    protected bool $checked = false;
+    protected ?bool $checked = false;
 
     public static function create(string $name): self
     {
         return new self($name);
     }
 
-    public function checked(bool $checked): self
+    public function checked(?bool $checked): self
     {
-        $this->checked = $checked;
+        $this->checked = $checked ?? false;
         return $this;
     }
 

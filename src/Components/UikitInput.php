@@ -22,7 +22,7 @@ class UikitInput extends UikitBaseComponent
             'label' => $this->label,
             'name' => $this->name,
             'value' => $this->value,
-            'class' => $this->class,
+            'class' => $this->class ?? 'uk-input',
             'attributes' => $this->attributes,
         ])->render();
     }
