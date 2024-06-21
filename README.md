@@ -74,6 +74,11 @@ Install package:
 $ composer require wdda/laravel-uikit-form
 ```
 
+Update package
+```bash
+$ composer update wdda/laravel-uikit-form
+```
+
 Open your config/app.php and add the following to the providers array:
 ``` php
 WDDA\LaravelUikitForm\LaravelUikitFormProvider::class,
