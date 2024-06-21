@@ -24,19 +24,45 @@ Result:
  ```
  
 ```php
-formInput()->name('Input')->label('Input')->id('id')->class('uk-input')->attributes(['attribute1', 'attribute2' => 'value'])->value('value')
+formInput('Input')
+    ->label('Input')
+    ->id('id')
+    ->class('uk-input')
+    ->attributes(['attribute1', 'attribute2' => 'value'])
+    ->value('value')
 ```
 ```php
-formTextarea()->name('Textarea')->label('Textarea')->id('id')->class('uk-input')->attributes(['attribute1', 'attribute2' => 'value'])->value('value')->rows(8)
+formTextarea('Textarea')
+    ->label('Textarea')
+    ->id('id')
+    ->class('uk-input')
+    ->attributes(['attribute1', 'attribute2' => 'value'])
+    ->value('value')
+    ->rows(8)
 ```
 ```php
-formSelect()->name('Select')->label('Select')->id('id')->class('uk-input')->attributes(['attribute1', 'attribute2' => 'value'])->value('value')
+formSelect('Select')
+    ->label('Select')
+    ->id('id')
+    ->class('uk-input')
+    ->attributes(['attribute1', 'attribute2' => 'value'])
+    ->value('value')
 ```
 ```php
-formCheckbox()->name('Checkbox')->label('Checkbox')->id('id')->class('uk-input')->attributes(['attribute1', 'attribute2' => 'value'])->value('value')
+formCheckbox('Checkbox')
+    ->label('Checkbox')
+    ->id('id')
+    ->class('uk-input')
+    ->attributes(['attribute1', 'attribute2' => 'value'])
+    ->value('value')
 ```
 ```php
-formRadio()->name('Radio')->label('Radio')->id('id')->class('uk-input')->attributes(['attribute1', 'attribute2' => 'value'])->value('value')
+formRadio('Radio')
+    ->label('Radio')
+    ->id('id')
+    ->class('uk-input')
+    ->attributes(['attribute1', 'attribute2' => 'value'])
+    ->value('value')
 ```
 
 
