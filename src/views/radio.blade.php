@@ -5,7 +5,7 @@
             class="{{ $class ?: 'uk-radio' }}"
             @if($id) id="{{ $id }}" @endif
             @if($name) name="{{ $name }}" @endif
-            @if($value) name="{{ $value }}" @endif
+            @if($value) value="{{ $value }}" @endif
             {{ $attributes }}
             @if($checked) checked @endif
         >
