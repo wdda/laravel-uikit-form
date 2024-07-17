@@ -13,12 +13,12 @@ Input:
 Result:
  ```php
 <div class="uk-margin-small-bottom">
-    <label @if($id)for="{{ $id }}"@endif>{{ $label }}</label>
+    <label @if($id) for="{{ $id }}" @endif>{{ $label }}</label>
     <div class="uk-form-controls">
-        <input @if(!$class)class="uk-input" @endif
-            @if($id)id="{{ $id }}" @endif
-            @if($name)name="{{ $name }}" @endif
-            value="{{ $value }}"{!! $attributes !!}>
+        <input class="{{ $class }}"
+               @if($id) id="{{ $id }}" @endif
+               @if($name) name="{{ $name }}" @endif
+               value="{{ $value }}" {!! $attributes !!}>
     </div>
 </div>
  ```
@@ -35,7 +35,7 @@ formInput('Input')
 formTextarea('Textarea')
     ->label('Textarea')
     ->id('id')
-    ->class('uk-input')
+    ->class('uk-textarea')
     ->attributes(['attribute1', 'attribute2' => 'value'])
     ->value('value')
     ->rows(8)
@@ -44,7 +44,7 @@ formTextarea('Textarea')
 formSelect('Select')
     ->label('Select')
     ->id('id')
-    ->class('uk-input')
+    ->class('uk-select')
     ->attributes(['attribute1', 'attribute2' => 'value'])
     ->value('value')
 ```
@@ -52,7 +52,7 @@ formSelect('Select')
 formCheckbox('Checkbox')
     ->label('Checkbox')
     ->id('id')
-    ->class('uk-input')
+    ->class('uk-checkbox')
     ->attributes(['attribute1', 'attribute2' => 'value'])
     ->value('value')
 ```
@@ -60,7 +60,7 @@ formCheckbox('Checkbox')
 formRadio('Radio')
     ->label('Radio')
     ->id('id')
-    ->class('uk-input')
+    ->class('uk-radio')
     ->attributes(['attribute1', 'attribute2' => 'value'])
     ->value('value')
 ```
